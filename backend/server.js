@@ -91,6 +91,11 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend running → http://localhost:${PORT}`);
-});
+// Only listen locally, Vercel will use the exported app directly
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Backend running → http://localhost:${PORT}`);
+  });
+}
+
+export default app;
