@@ -4,7 +4,7 @@
  */
 export default function SpeakerTabs({ speakers, activeId, onSelect }) {
   return (
-    <div className="flex bg-white">
+    <div className="flex bg-slate-900">
       {speakers.map((speaker) => {
         const isActive = activeId === speaker.id;
         return (
@@ -13,14 +13,14 @@ export default function SpeakerTabs({ speakers, activeId, onSelect }) {
             onClick={() => onSelect(speaker.id)}
             className="flex-1 flex items-center justify-center gap-3 py-4 text-sm font-semibold transition-all relative cursor-pointer group"
             style={{
-              color: isActive ? speaker.accent : "#64748b",
+              color: isActive ? speaker.accent : "#94a3b8",
             }}
           >
             {/* Avatar circle */}
             <span
               className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0 shadow-sm transition-transform group-hover:scale-110"
               style={{
-                background: isActive ? speaker.accent : "#cbd5e1",
+                background: isActive ? speaker.accent : "#334155",
               }}
             >
               {speaker.initials}
@@ -37,7 +37,7 @@ export default function SpeakerTabs({ speakers, activeId, onSelect }) {
                 style={{ background: speaker.accent }}
               />
             ) : (
-              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-transparent group-hover:bg-gray-100 transition-colors" />
+              <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-transparent group-hover:bg-slate-800 transition-colors" />
             )}
           </button>
         );

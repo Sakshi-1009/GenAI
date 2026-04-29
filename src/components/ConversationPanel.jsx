@@ -85,21 +85,21 @@ export default function ConversationPanel() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 flex justify-center">
-      <div className="w-full max-w-4xl bg-white flex flex-col shadow-2xl overflow-hidden">
+    <div className="min-h-screen bg-slate-950 flex justify-center">
+      <div className="w-full bg-slate-900 flex flex-col shadow-2xl overflow-hidden">
         
         {/* ── Header ── */}
-        <header className="bg-white border-b border-gray-200 px-8 py-6 z-10">
+        <header className="bg-slate-900 border-b border-slate-800 px-8 py-6 z-10">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-xl font-black text-slate-900 tracking-tighter uppercase italic">
-                GenAI <span className="text-slate-400 font-normal not-italic tracking-normal normal-case ml-1">Persona</span>
+              <h1 className="text-2xl font-black text-slate-100 tracking-tighter uppercase italic">
+                Scaler<span className="text-blue-500 font-normal not-italic tracking-normal normal-case ml-1">AI</span>
               </h1>
             </div>
             <div className="flex items-center gap-3">
               <div className="flex flex-col items-end">
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Talking to</span>
-                <span className="text-sm font-bold text-slate-900">{currentSpeaker.label}</span>
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Talking to</span>
+                <span className="text-sm font-bold text-slate-100">{currentSpeaker.label}</span>
               </div>
               <div 
                 className="w-2 h-2 rounded-full animate-pulse" 
@@ -110,7 +110,7 @@ export default function ConversationPanel() {
         </header>
 
         {/* ── Speaker Tabs ── */}
-        <nav className="bg-slate-50 border-b border-gray-200">
+        <nav className="bg-slate-900 border-b border-slate-800">
           <SpeakerTabs
             speakers={speakerList}
             activeId={activeSpeakerId}
@@ -119,30 +119,30 @@ export default function ConversationPanel() {
         </nav>
 
         {/* ── Chat Canvas ── */}
-        <main className="flex-1 overflow-y-auto bg-white relative">
-          <div className="max-w-3xl mx-auto px-8 py-10">
+        <main className="flex-1 overflow-y-auto bg-slate-950 relative">
+          <div className="max-w-5xl mx-auto px-8 py-10">
 
             {/* Empty State: Intro & Suggestions */}
             {chatLog.length === 0 && (
               <div className="flex flex-col items-center py-16 text-center animate-in fade-in duration-700">
                 <div
-                  className="w-24 h-24 rounded-3xl flex items-center justify-center text-3xl font-black text-white mb-8 shadow-xl rotate-3"
+                  className="w-20 h-20 rounded-3xl flex items-center justify-center text-3xl font-black text-white mb-6 shadow-2xl rotate-3"
                   style={{ background: currentSpeaker.accent }}
                 >
                   {currentSpeaker.initials}
                 </div>
-                <h2 className="text-3xl font-black text-slate-900 mb-3 tracking-tight">
+                <h2 className="text-3xl font-black text-slate-100 mb-2 tracking-tight">
                   {currentSpeaker.label}
                 </h2>
-                <p className="text-lg text-slate-500 mb-12 max-w-lg leading-relaxed">
+                <p className="text-base text-slate-400 mb-10 max-w-lg leading-relaxed">
                   {currentSpeaker.role}
                 </p>
 
-                <div className="w-full max-w-2xl">
+                <div className="w-full max-w-3xl">
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="h-px flex-1 bg-slate-200"></div>
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Quick Starts</span>
-                    <div className="h-px flex-1 bg-slate-200"></div>
+                    <div className="h-px flex-1 bg-slate-800"></div>
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Quick Starts</span>
+                    <div className="h-px flex-1 bg-slate-800"></div>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -150,13 +150,13 @@ export default function ConversationPanel() {
                       <button
                         key={idx}
                         onClick={() => dispatch(text)}
-                        className="group text-left text-sm bg-slate-50 border border-slate-200 rounded-2xl px-6 py-5 hover:bg-white hover:border-slate-400 hover:shadow-xl hover:-translate-y-1 transition-all text-slate-700 cursor-pointer relative overflow-hidden"
+                        className="group text-left text-sm bg-slate-900 border border-slate-800 rounded-2xl px-8 py-6 hover:bg-slate-800 hover:border-slate-700 hover:shadow-2xl hover:-translate-y-1 transition-all text-slate-300 cursor-pointer relative overflow-hidden"
                       >
                         <div 
-                          className="absolute left-0 top-0 bottom-0 w-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute left-0 top-0 bottom-0 w-1.5 opacity-0 group-hover:opacity-100 transition-opacity"
                           style={{ background: currentSpeaker.accent }}
                         />
-                        <span className="relative z-10 leading-snug font-medium">{text}</span>
+                        <span className="relative z-10 leading-relaxed font-medium block">{text}</span>
                       </button>
                     ))}
                   </div>
@@ -176,9 +176,9 @@ export default function ConversationPanel() {
         </main>
 
         {/* ── Input Zone ── */}
-        <footer className="bg-slate-50 border-t border-gray-200 px-8 py-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex gap-4 items-end bg-white border border-slate-200 rounded-2xl p-2 shadow-sm focus-within:shadow-md focus-within:border-slate-400 transition-all">
+        <footer className="bg-slate-900 border-t border-slate-800 px-8 py-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex gap-4 items-end bg-slate-950 border border-slate-800 rounded-2xl p-2 shadow-sm focus-within:shadow-md focus-within:border-slate-700 transition-all">
               <textarea
                 ref={inputBox}
                 value={draft}
@@ -187,7 +187,7 @@ export default function ConversationPanel() {
                 placeholder={`Type a message for ${currentSpeaker.label.split(" ")[0]}...`}
                 rows={1}
                 disabled={pending}
-                className="flex-1 resize-none bg-transparent px-4 py-3 text-base focus:outline-none max-h-40 overflow-y-auto"
+                className="flex-1 resize-none bg-transparent px-4 py-3 text-base text-slate-100 focus:outline-none max-h-40 overflow-y-auto"
                 style={{ minHeight: "48px" }}
               />
               <button
@@ -202,10 +202,10 @@ export default function ConversationPanel() {
               </button>
             </div>
             <div className="flex justify-between items-center mt-4 px-2">
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                 Press Enter to send
               </p>
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
                 AI can make mistakes
               </p>
             </div>

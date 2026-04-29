@@ -9,7 +9,7 @@ export default function ChatBubble({ entry, speaker }) {
   if (isUser) {
     return (
       <div className="flex justify-end mb-3">
-        <div className="max-w-[75%] bg-gray-800 text-white rounded-2xl rounded-tr-sm px-4 py-2.5">
+        <div className="max-w-[80%] bg-slate-800 text-slate-100 rounded-2xl rounded-tr-sm px-5 py-3 shadow-lg">
           <p className="text-sm leading-relaxed whitespace-pre-wrap">{entry.content}</p>
         </div>
       </div>
@@ -28,13 +28,13 @@ export default function ChatBubble({ entry, speaker }) {
 
       {/* Message body */}
       <div
-        className="max-w-[75%] bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-2.5"
-        style={{ borderLeftColor: speaker.accent, borderLeftWidth: "2px" }}
+        className="max-w-[80%] bg-slate-900 border border-slate-800 rounded-2xl rounded-tl-sm px-5 py-3 shadow-lg"
+        style={{ borderLeftColor: speaker.accent, borderLeftWidth: "3px" }}
       >
-        <p className="text-[11px] font-semibold mb-1" style={{ color: speaker.accent }}>
+        <p className="text-[11px] font-bold mb-1.5 uppercase tracking-wider" style={{ color: speaker.accent }}>
           {speaker.label}
         </p>
-        <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+        <p className="text-sm text-slate-300 leading-relaxed whitespace-pre-wrap">
           {entry.content}
         </p>
       </div>
