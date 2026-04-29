@@ -2,14 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
-import { speakers } from "./src/data/speakers.js";
-import path from "path";
-import { fileURLToPath } from "url";
+import { speakers } from "./speakers.js";
 
 dotenv.config();
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -94,14 +89,6 @@ app.post("/api/chat", async (req, res) => {
     const detail = err instanceof Error ? err.message : "Unexpected failure";
     return res.status(500).json({ error: `Server error: ${detail}` });
   }
-});
-
-/* ── Serve built frontend in production ── */
-
-const distPath = path.join(__dirname, "dist");
-app.use(express.static(distPath));
-app.get("/{*path}", (_req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
 });
 
 app.listen(PORT, () => {
