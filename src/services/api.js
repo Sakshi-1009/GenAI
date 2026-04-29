@@ -7,10 +7,9 @@
  *   Response: { reply: string }
  */
 
-// Use full URL if provided via environment variable (e.g., in production),
-// otherwise use relative path which is proxied locally by Vite.
-const BASE_URL = import.meta.env.VITE_API_URL || "";
-const ENDPOINT = `${BASE_URL}/api/chat`;
+// Use relative path which works both locally (via Vite proxy) and in production
+// (since they are deployed on the same domain as a Vercel Monolith)
+const ENDPOINT = "/api/chat";
 
 /**
  * sendMessage — sends the full conversation history + speakerId to the backend.
